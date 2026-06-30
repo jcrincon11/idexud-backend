@@ -19,5 +19,10 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
-# Ejecuta migraciones Alembic y luego arranca el servidor
-CMD alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000
+# 1. Crea todas las tablas con SQLAlchemy (create_all) si no existen
+# 2. Marca todas las migraciones como aplicadas (stamp head) para que
+#    Alembic no intente correrlas sobre tablas ya creadas
+# 3. Arranca el servidor
+CMD python -c "import asyncio; from app.db.session import init_db; asyncio.run(init_db())" \
+    && alembic stamp head \
+    && uvicorn app.main:app --host 0.0.0.0 --port 8000
