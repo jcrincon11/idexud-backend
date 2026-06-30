@@ -1,0 +1,48 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Variables de entorno (secretos)
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Base de datos local
+*.db
+*.sqlite3
+
+# Alembic (no ignorar el directorio, solo archivos generados)
+alembic/versions/__pycache__/
+
+# SO
+.DS_Store
+Thumbs.db
+
+# Carpeta frontend que cayó dentro del backend por error
+idexud-frontend/
