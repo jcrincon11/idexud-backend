@@ -29,6 +29,7 @@ fastapi-mail==1.4.1
 
 # Utilidades
 python-dateutil==2.9.0.post0
+openpyxl==3.1.2
 
 # Testing
 pytest==8.2.2
